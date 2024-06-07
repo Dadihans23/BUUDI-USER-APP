@@ -34,7 +34,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).cardColor,
-      appBar: CustomAppbarWidget(title: 'login_registration'.tr),
+      appBar: CustomAppbarWidget(title:'login_registration'.tr
+),
       body: Column(crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(

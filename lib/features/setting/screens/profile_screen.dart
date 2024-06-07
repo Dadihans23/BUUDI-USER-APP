@@ -155,12 +155,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       return profileController.isLoading ? const TwoFactorShimmer() :
                       StatusMenu(
                         title: 'two_factor_authentication'.tr,
-                        leading: Image.asset(Images.twoFactorAuthentication,width: 28.0),
+                        leading: Image.asset(Images.twoFactorAuthentication,width: 20.0),
                       );
                     }),
 
                   if(authController.isBiometricSupported) StatusMenu(
-                    title: 'biometric_login'.tr, leading: SizedBox(width: 25,child: Image.asset(Images.fingerprint)), isAuth: true,
+                    title: 'biometric_login'.tr, leading: SizedBox(width: 20,child: Image.asset(Images.fingerprint)), isAuth: true,
                   ),
 
                   if(splashController.configModel?.selfDelete == true) CustomInkWellWidget(

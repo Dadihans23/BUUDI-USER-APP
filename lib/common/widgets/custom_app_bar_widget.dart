@@ -62,7 +62,7 @@ class CustomAppbarWidget extends StatelessWidget implements PreferredSizeWidget 
                 ),
                 const SizedBox(width: Dimensions.paddingSizeDefault),
 
-                Text(title, style: rubikMedium.copyWith(fontSize: Dimensions.fontSizeExtraLarge, color: Colors.white),
+                Text(title, style: rubikMedium.copyWith(fontSize:18, color: Colors.white),
                 ),
 
                 isSkip ? const Spacer() : const SizedBox(),

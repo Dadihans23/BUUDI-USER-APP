@@ -11,45 +11,46 @@ import 'package:six_cash/common/widgets/custom_ink_well_widget.dart';
 
 import 'confirm_pin_bottom_sheet.dart';
 
-class StatusMenu extends StatelessWidget {
-  final String? title;
-  final Widget? leading;
-  final bool isAuth;
-  const StatusMenu({Key? key,
-   this.title, this.leading, this.isAuth = false,
-  }) : super(key: key);
+// class StatusMenu extends StatelessWidget {
+//   final String? title;
+//   final Widget? leading;
+//   final bool isAuth;
+//   const StatusMenu({Key? key,
+//    this.title, this.leading, this.isAuth = false,
+//   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    final profileController = Get.find<ProfileController>();
-    final authController = Get.find<AuthController>();
+//   @override
+//   Widget build(BuildContext context) {
+//     final profileController = Get.find<ProfileController>();
+//     final authController = Get.find<AuthController>();
 
-    return CustomInkWellWidget(
-      onTap: () => Get.defaultDialog(barrierDismissible: false, title: '4digit_pin'.tr, content: ConfirmPinBottomSheet(
-        callBack: isAuth ? authController.setBiometric : profileController.twoFactorOnTap, isAuth: isAuth,
-      ),),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeSmall,horizontal: Dimensions.paddingSizeDefault),
-        child: Row(children: [
-          leading!,
-          const SizedBox(width: Dimensions.paddingSizeDefault),
-          Text(title!,style: rubikRegular.copyWith(fontSize: Dimensions.fontSizeLarge)),
-          const Spacer(),
-          GetBuilder<AuthController>(builder: (authController) {
-              return GetBuilder<ProfileController>(builder: (profController) {
+//     return CustomInkWellWidget(
+//       onTap: () => Get.defaultDialog(barrierDismissible: false, title: '4digit_pin'.tr, content: ConfirmPinBottomSheet(
+//         callBack: isAuth ? authController.setBiometric : profileController.twoFactorOnTap, isAuth: isAuth,
+//       ),),
+//       child: Padding(
+//         padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeSmall,horizontal: Dimensions.paddingSizeDefault),
+//         child:Row(
+//           children: [
+//           leading!,
+//           const SizedBox(width: Dimensions.paddingSizeDefault),
+//           Text(title!,style: rubikRegular.copyWith(fontSize: Dimensions.fontSizeLarge)),
+//           const Spacer(),
+//           GetBuilder<AuthController>(builder: (authController) {
+//               return GetBuilder<ProfileController>(builder: (profController) {
 
-                bool? isOn = isAuth ? (authController.biometric && authController.bioList.isNotEmpty) : profController.userInfo!.twoFactor;
-               return profController.isLoading ? Center(child: Text('off'.tr))
-                   : Text(isOn! ? 'on'.tr : 'off'.tr);
+//                 bool? isOn = isAuth ? (authController.biometric && authController.bioList.isNotEmpty) : profController.userInfo!.twoFactor;
+//                return profController.isLoading ? Center(child: Text('off'.tr))
+//                    : Text(isOn! ? 'on'.tr : 'off'.tr);
 
-            });
-          })],
-        ),
-      ),
+//             });
+//           })],
+//         ),
+//       ),
 
-    );
-  }
-}
+//     );
+//   }
+// }
 
 
 class TwoFactorShimmer extends StatelessWidget {
@@ -71,6 +72,85 @@ class TwoFactorShimmer extends StatelessWidget {
             //Image.asset(Images.arrow_right_logo,width: 32.0,)
 
           ],),
+        ),
+      ),
+    );
+  }
+}
+
+
+class StatusMenu extends StatelessWidget {
+  final String? title;
+  final Widget? leading;
+  final bool isAuth;
+  const StatusMenu({
+    Key? key,
+    this.title,
+    this.leading,
+    this.isAuth = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final profileController = Get.find<ProfileController>();
+    final authController = Get.find<AuthController>();
+
+    return CustomInkWellWidget(
+      onTap: () => Get.defaultDialog(
+        barrierDismissible: false,
+        title: '4digit_pin'.tr,
+        content: ConfirmPinBottomSheet(
+          callBack: isAuth
+              ? authController.setBiometric
+              : profileController.twoFactorOnTap,
+          isAuth: isAuth,
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: Dimensions.paddingSizeSmall,
+          horizontal: Dimensions.paddingSizeDefault,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                leading!,
+                const SizedBox(width: Dimensions.paddingSizeDefault),
+                Text(
+                  title!,
+                  style: rubikRegular.copyWith(
+                    fontSize: Dimensions.fontSizeLarge,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: Dimensions.paddingSizeSmall),
+            GetBuilder<AuthController>(
+              builder: (authController) {
+                return GetBuilder<ProfileController>(
+                  builder: (profController) {
+                    bool? isOn = isAuth
+                        ? (authController.biometric &&
+                            authController.bioList.isNotEmpty)
+                        : profController.userInfo!.twoFactor;
+                    return profController.isLoading
+                        ? Center(child: Text('off'.tr))
+                        : Container(
+                          margin: EdgeInsets.only(left: 40),
+                          child: Text(
+                              isOn! ? 'on'.tr : 'off'.tr,
+                              style: TextStyle(
+                                fontSize: 7, color: Colors.green
+                              ),
+                            ),
+                        );
+                  },
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

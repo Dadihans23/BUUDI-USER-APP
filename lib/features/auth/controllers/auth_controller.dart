@@ -343,8 +343,8 @@ class AuthController extends GetxController implements GetxService {
     update();
     Response response = await authRepo.logout();
     if (response.statusCode == 200) {
-
-      Get.offAllNamed(RouteHelper.getSplashRoute());
+      Get.offNamed(RouteHelper.getChoseLoginRegRoute());
+      // Get.offAllNamed(RouteHelper.getSplashRoute());
       _isLoading = false;
     }
     else{

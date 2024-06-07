@@ -93,6 +93,7 @@ class AppConstants {
   static const int balanceInputLen = 10;
 
   static List<LanguageModel> languages = [
+    LanguageModel(imageUrl: Images.english, languageName: 'French', countryCode: 'FR', languageCode: 'fr'), // Ajoutez cette ligne
     LanguageModel(imageUrl: Images.english, languageName: 'English', countryCode: 'US', languageCode: 'en'),
     LanguageModel(imageUrl: Images.saudi, languageName: 'Arabic', countryCode: 'SA', languageCode: 'ar'),
 
