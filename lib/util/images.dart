@@ -18,8 +18,8 @@ class Images {
 
   static const String homeIconBold = 'assets/image/home_bold.png';
   static const String homeIcon = 'assets/image/home.png';
-  static const String clockIcon = 'assets/image/stats.png';
-  static const String clockIconBold = 'assets/image/stats.png';
+  static const String clockIcon = 'assets/image/notif.png';
+  static const String clockIconBold = 'assets/image/notif.png';
   static const String scannerIcon = 'assets/image/Scan.png';
   static const String notificationIcon = 'assets/image/credit-card.png';
   static const String notificationIconBold = 'assets/image/credit-card.png';
