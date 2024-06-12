@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:six_cash/features/setting/controllers/profile_screen_controller.dart';
 import 'package:six_cash/features/splash/controllers/splash_controller.dart';
+import 'package:six_cash/features/transaction_money/screens/add_money_from_other.dart';
 import 'package:six_cash/helper/price_converter_helper.dart';
 import 'package:six_cash/helper/transaction_type.dart';
 import 'package:six_cash/util/color_resources.dart';
@@ -100,7 +101,7 @@ class ThemeOneWidget extends StatelessWidget {
 
 
                       child: CustomInkWellWidget(
-                        onTap: () => Get.to(const TransactionBalanceInputScreen(transactionType: 'add_money')),
+                        onTap: () => Get.to(const addMoneyFromOther()),
                         radius: Dimensions.radiusSizeLarge,
                         child: Padding(padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeLarge),
                           child: Column(mainAxisAlignment: MainAxisAlignment.center,

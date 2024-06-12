@@ -26,6 +26,7 @@ import 'package:six_cash/features/setting/screens/qr_code_download_or_share_scre
 import 'package:six_cash/features/setting/screens/support_screen.dart';
 import 'package:six_cash/features/splash/screens/splash_screen.dart';
 import 'package:six_cash/features/transaction_money/screens/transaction_balance_input_screen.dart';
+import 'package:six_cash/features/transaction_money/screens/add_money_from_other.dart';
 import 'package:six_cash/features/transaction_money/screens/transaction_confirmation_screen.dart';
 import 'package:six_cash/features/transaction_money/screens/transaction_money_screen.dart';
 import 'package:six_cash/features/transaction_money/widgets/share_statement_widget.dart';
@@ -152,6 +153,8 @@ class RouteHelper {
     GetPage(name: changePinScreen, page: () => const ChangePinScreen()),
     GetPage(name: sendMoney, page: () => TransactionMoneyScreen(phoneNumber: Get.parameters['phone-number'],fromEdit: Get.parameters['from-edit']== 'edit-number')),
     GetPage(name: sendMoneyBalanceInput, page: () => TransactionBalanceInputScreen(transactionType: Get.parameters['transaction-type'])),
+    GetPage(name: addMoney, page: () => addMoneyFromOther()),
+
     GetPage(name: sendMoneyConfirmation, page: () => TransactionConfirmationScreen(inputBalance:double.tryParse(Get.parameters['input-balance']!),transactionType: Get.parameters['transaction-type'])),
 
     GetPage(name: choseLoginOrRegScreen, page: () => const OnBoardingScreen()),
@@ -197,3 +200,237 @@ class RouteHelper {
     ];
 
 }
+// SingleChildScrollView(
+//                   physics: BouncingScrollPhysics(),
+//                   child: Column(
+//                       children: [
+//                         Container(
+//                           color: Colors.grey.shade200,
+//                           padding: EdgeInsets.symmetric(horizontal: 20 , vertical: 20),
+//                           child: Column(
+//                             crossAxisAlignment: CrossAxisAlignment.start,
+//                             children: [
+//                               Text("Carte a credité" , style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold),),
+//                               Row(
+//                                 children: [
+//                                   Container(
+//                                     height: 85,
+//                                     child: Image.asset(Images.logo),
+//                                     decoration: BoxDecoration(
+//                                           color:Colors.black,
+//                                           borderRadius: BorderRadius.circular(30),
+//                                         ),
+//                                    ),
+//                                    SizedBox(width: 10,) ,
+//                                    Container(
+//                                     child: Column(
+//                                      crossAxisAlignment: CrossAxisAlignment.start,
+//                                       children: [
+//                                         Text("la carte buudi" ,style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500)),
+//                                         Text( profileController.userInfo!.phone!,style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500)),
+//                                         Text( "solde : ${PriceConverterHelper.balanceWithSymbol(balance: profileController.userInfo!.balance.toString())}",
+//                                         style: TextStyle(color: Colors.green , fontWeight: FontWeight.bold)),
+//                                       ],
+//                                     ),
+//                                    )
+//                                 ],
+//                               )
+//                             ],
+//                           ),
+//                         ),
+//                         Container(
+//                           child: Column(
+//                             children: [
+//                               Container(
+//                                 padding: EdgeInsets.symmetric(vertical: 15),
+//                                 child: Text("compte a debiter" ,style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold , fontSize: 18),),
+//                               ),
+//                               Padding(
+//                                 padding: const EdgeInsets.symmetric(vertical: 20 , horizontal: 25),
+//                                 child: Container(
+//                                   child: Column(
+//                                     crossAxisAlignment: CrossAxisAlignment.start,
+//                                     children: [
+//                                       Text("Cote d'ivoire",style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold , fontSize: 15),),
+//                                       Container(
+//                                         child: Column(
+//                                           children: [
+//                                            Padding(
+//                                             padding: EdgeInsets.symmetric(vertical: 10),
+//                                             child: Container(
+//                                                     decoration: BoxDecoration(
+//                                                       color: Colors.grey.shade300,
+//                                                       borderRadius: BorderRadius.circular(5)
+//                                                     ),
+//                                                     child: Padding(
+//                                                       padding: const EdgeInsets.symmetric(horizontal: 15 , vertical: 10),
+//                                                       child: Row(
+//                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                                                         children: [
+//                                                           Row(
+//                                                             children: [
+//                                                               Container(
+//                                                                 height: 45,
+//                                                                 child: Image.asset(Images.orangelogo),
+//                                                               ),
+//                                                               SizedBox(width:10),
+//                                                               Container(
+//                                                                 child: Text("ORANGE" , style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500 , fontSize: 15) ),
+//                                                               )
+//                                                             ],
+//                                                           ),
+//                                                           Container(
+//                                                             child: GestureDetector(
+//                                                               onTap: () {
+//                                                                    Navigator.push(
+//                                                                   context,
+//                                                                   PageRouteBuilder(
+//                                                                     pageBuilder: (context, animation, secondaryAnimation) => confirmTransaction(),
+//                                                                   ),
+//                                                                 );
+//                                                               },
+//                                                               child: Icon(Icons.near_me),
+//                                                             ),
+//                                                           )
+//                                                         ],
+//                                                       ),
+//                                                     )
+//                                             ),
+//                                            ),
+                                            
+//                                           ],
+//                                         ),
+//                                       ),
+//                                       Container(
+//                                         child: Column(
+//                                           children: [
+//                                            Padding(
+//                                             padding: EdgeInsets.symmetric(vertical: 10),
+//                                             child: Container(
+//                                                     decoration: BoxDecoration(
+//                                                       color: Colors.grey.shade300,
+//                                                       borderRadius: BorderRadius.circular(5)
+//                                                     ),
+//                                                     child: Padding(
+//                                                       padding: const EdgeInsets.symmetric(horizontal: 15 , vertical: 10),
+//                                                       child: Row(
+//                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                                                         children: [
+//                                                           Row(
+//                                                             children: [
+//                                                               Container(
+//                                                                 height: 45,
+//                                                                 child: Image.asset(Images.moovlogo),
+//                                                               ),
+//                                                               SizedBox(width:10),
+//                                                               Container(
+//                                                                 child: Text("MOOV" , style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500 , fontSize: 15) ),
+//                                                               )
+//                                                             ],
+//                                                           ),
+//                                                           Container(
+//                                                             child: Icon(Icons.near_me),
+//                                                           )
+//                                                         ],
+//                                                       ),
+//                                                     )
+//                                             ),
+//                                            ),
+                                            
+//                                           ],
+//                                         ),
+//                                       ),Container(
+//                                         child: Column(
+//                                           children: [
+//                                            Padding(
+//                                             padding: EdgeInsets.symmetric(vertical: 10),
+//                                             child: Container(
+//                                                     decoration: BoxDecoration(
+//                                                       color: Colors.grey.shade300,
+//                                                       borderRadius: BorderRadius.circular(5)
+//                                                     ),
+//                                                     child: Padding(
+//                                                       padding: const EdgeInsets.symmetric(horizontal: 15 , vertical: 10),
+//                                                       child: Row(
+//                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                                                         children: [
+//                                                           Row(
+//                                                             children: [
+//                                                               Container(
+//                                                                 height: 45,
+//                                                                 child: Image.asset(Images.mtnlogo),
+//                                                               ),
+//                                                               SizedBox(width:10),
+//                                                               Container(
+//                                                                 child: Text("MTN" , style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500 , fontSize: 15) ),
+//                                                               )
+//                                                             ],
+//                                                           ),
+//                                                           Container(
+//                                                             child: Icon(Icons.near_me),
+//                                                           )
+//                                                         ],
+//                                                       ),
+//                                                     )
+//                                             ),
+//                                            ),
+                                            
+//                                           ],
+//                                         ),
+//                                       ),Container(
+//                                         child: Column(
+//                                           children: [
+//                                            Padding(
+//                                             padding: EdgeInsets.symmetric(vertical: 10),
+//                                             child: Container(
+//                                                     decoration: BoxDecoration(
+//                                                       color: Colors.grey.shade300,
+//                                                       borderRadius: BorderRadius.circular(5)
+//                                                     ),
+//                                                     child: Padding(
+//                                                       padding: const EdgeInsets.symmetric(horizontal: 15 , vertical: 10),
+//                                                       child: Row(
+//                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                                                         children: [
+//                                                           Row(
+//                                                             children: [
+//                                                               Container(
+//                                                                 height: 45,
+//                                                                 child: Image.asset(Images.wavelogo),
+//                                                               ),
+//                                                               SizedBox(width:10),
+//                                                               Container(
+//                                                                 child: Text("WAVE" , style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500 , fontSize: 15) ),
+//                                                               )
+//                                                             ],
+//                                                           ),
+//                                                           Container(
+//                                                             child: Icon(Icons.near_me),
+//                                                           )
+//                                                         ],
+//                                                       ),
+//                                                     )
+//                                             ),
+//                                            ),
+                                            
+//                                           ],
+//                                         ),
+//                                       )
+                                
+//                                     ],
+//                                   ),
+//                                 ),
+//                               )
+//                             ],
+//                           ),
+//                           decoration: BoxDecoration(
+//                             color: Colors.white,
+//                             borderRadius: BorderRadius.only(
+//                               topLeft: Radius.circular(40),
+//                               topRight: Radius.circular(40),
+//                             ),
+//                           ),
+//                         )
+//                       ],
+//                   ),
+//                 );

@@ -4,7 +4,7 @@ class Images {
   static const String english = 'assets/image/english.png';
 
   //
-   static const String logo = 'assets/image/logobuudi.jpeg';
+  static const String logo = 'assets/image/logobuudi.jpeg';
   static const String avatar = 'assets/image/avatar.jpg';
 
   static const String onboardImage2 = 'assets/image/slide2.png';
@@ -15,6 +15,15 @@ class Images {
   static const String onboardBackground2 = 'assets/image/image_background.png';
   static const String onboardBackground3 = 'assets/image/image_background.png';
   static const String onboardBackground4 = 'assets/image/image_background.png';
+
+    static const String orangelogo = 'assets/image/orangelogo2.png';
+    static const String mtnlogo = 'assets/image/mtnlogo.png';
+    static const String wavelogo = 'assets/image/wavelogo2.png';
+    static const String moovlogo = 'assets/image/moovlogo.png';
+
+
+
+
 
   static const String mastercard = 'assets/image/mastercard.png';
   static const String homeIconBold = 'assets/image/home_bold.png';
