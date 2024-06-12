@@ -96,7 +96,8 @@ class _NavBarScreenState extends State<NavBarScreen> {
                 BottomItemWidget(
                   onTop: () => menuController.selectHomePage(),
                   icon: menuController.currentTabIndex == 0
-                      ? Images.homeIconBold : Images.homeIcon,
+                      ? Icons.home
+                      : Icons.home_outlined,
                   name: 'home'.tr,
                   selectIndex: 0,
                 ),
@@ -104,16 +105,21 @@ class _NavBarScreenState extends State<NavBarScreen> {
                 BottomItemWidget(
                   onTop: () => menuController.selectHistoryPage(),
                   icon: menuController.currentTabIndex == 1
-                      ? Images.clockIconBold : Images.clockIcon,
-                      
-                  name: 'history'.tr, selectIndex: 1,
+                      ? Icons.history
+                      : Icons.history,
+                  iconSize:24.0,
+                  name: 'history'.tr,
+                  selectIndex: 1,
+
                 ),
+
                 const SizedBox(height: 20, width: 20),
 
                 BottomItemWidget(
                   onTop: () => menuController.selectNotificationPage(),
                   icon: menuController.currentTabIndex == 2
-                      ? Images.notificationIconBold : Images.notificationIcon,
+                      ? Icons.notifications_active
+                      : Icons.notifications_active,
                   name: 'notification'.tr, selectIndex: 2,
                 ),
 

@@ -16,10 +16,11 @@ class Images {
   static const String onboardBackground3 = 'assets/image/image_background.png';
   static const String onboardBackground4 = 'assets/image/image_background.png';
 
+  static const String mastercard = 'assets/image/mastercard.png';
   static const String homeIconBold = 'assets/image/home_bold.png';
   static const String homeIcon = 'assets/image/home.png';
-  static const String clockIcon = 'assets/image/notif.png';
-  static const String clockIconBold = 'assets/image/notif.png';
+  static const String clockIcon = 'assets/image/historical.png';
+  static const String clockIconBold = 'assets/image/historical.png';
   static const String scannerIcon = 'assets/image/Scan.png';
   static const String notificationIcon = 'assets/image/credit-card.png';
   static const String notificationIconBold = 'assets/image/credit-card.png';

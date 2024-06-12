@@ -11,12 +11,15 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:six_cash/features/language/controllers/localization_controller.dart';
 import 'package:six_cash/features/setting/controllers/theme_controller.dart';
+import 'package:six_cash/firebase/firebase_api.dart';
 import 'package:six_cash/helper/notification_helper.dart';
 import 'package:six_cash/helper/route_helper.dart';
 import 'package:six_cash/theme/dark_theme.dart';
 import 'package:six_cash/theme/light_theme.dart';
 import 'package:six_cash/util/app_constants.dart';
 import 'package:six_cash/util/messages.dart';
+import 'package:permission_handler/permission_handler.dart';
+
 
 import 'helper/get_di.dart' as di;
 
@@ -27,6 +30,17 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
+  await firebaseAPI().initNotifications();
+  
+
+  void checkNotificationPermissions() async {
+  PermissionStatus status = await Permission.notification.status;
+  if (status.isDenied) {
+    // Demander l'autorisation
+    await Permission.notification.request();
+  }
+}
+
 
   if(GetPlatform.isAndroid){
    await FirebaseMessaging.instance.requestPermission();

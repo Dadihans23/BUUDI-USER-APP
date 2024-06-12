@@ -11,9 +11,13 @@ import 'package:six_cash/util/styles.dart';
 import 'package:six_cash/common/widgets/custom_ink_well_widget.dart';
 import 'package:six_cash/features/home/widgets/banner_widget.dart';
 import 'package:six_cash/features/home/widgets/option_card_widget.dart';
+import 'package:six_cash/features/home/widgets/option_car_banking.dart';
+
 import 'package:six_cash/features/requested_money/screens/requested_money_list_screen.dart';
 import 'package:six_cash/features/transaction_money/screens/transaction_balance_input_screen.dart';
 import 'package:six_cash/features/transaction_money/screens/transaction_money_screen.dart';
+import 'package:six_cash/features/transaction_money/screens/credit_card.dart';
+
 
 class ThemeOneWidget extends StatelessWidget {
   const ThemeOneWidget({Key? key}) : super(key: key);
@@ -142,6 +146,22 @@ class ThemeOneWidget extends StatelessWidget {
                           fromEdit: false,
                           transactionType: TransactionType.cashOut,
                         )),
+                      )),
+                      
+                      if(splashController.configModel!.systemFeature!.cashOutStatus!)Expanded(child: OptionCardWidget2(
+                        icon: Icons.credit_card, text:  'Banking',
+                        // text: 'cash_out'.tr.replaceAll(' ', '\n')
+                        color: Colors.indigo,
+                        onTap:(){
+                           Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CreditCardsPage(
+                          
+                          ),
+                        ),
+                      );
+                        }
                       )),
 
                       if(splashController.configModel!.systemFeature!.sendMoneyRequestStatus!)Expanded(child: OptionCardWidget(
