@@ -31,6 +31,7 @@ import '../widgets/next_button_widget.dart';
 
 
 
+
 class addMoneyFromOther extends StatefulWidget {
   const addMoneyFromOther({Key? key}) : super(key: key);
 
@@ -130,7 +131,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                              Navigator.push(
                                             context,
                                             PageRouteBuilder(
-                                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(),
+                                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.orangelogo ,),
                                             ),
                                           );
                                         },
@@ -174,7 +175,17 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                       ],
                                     ),
                                     Container(
-                                      child: Icon(Icons.near_me),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                             Navigator.push(
+                                            context,
+                                            PageRouteBuilder(
+                                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.moovlogo ,),
+                                            ),
+                                          );
+                                        },
+                                        child: Icon(Icons.near_me),
+                                      ),
                                     )
                                   ],
                                 ),
@@ -184,7 +195,8 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                           
                         ],
                       ),
-                    ),Container(
+                    ),
+                    Container(
                       child: Column(
                         children: [
                           Padding(
@@ -212,7 +224,17 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                       ],
                                     ),
                                     Container(
-                                      child: Icon(Icons.near_me),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                             Navigator.push(
+                                            context,
+                                            PageRouteBuilder(
+                                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.mtnlogo ,),
+                                            ),
+                                          );
+                                        },
+                                        child: Icon(Icons.near_me),
+                                      ),
                                     )
                                   ],
                                 ),
@@ -250,7 +272,17 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                       ],
                                     ),
                                     Container(
-                                      child: Icon(Icons.near_me),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                             Navigator.push(
+                                            context,
+                                            PageRouteBuilder(
+                                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.wavelogo ,),
+                                            ),
+                                          );
+                                        },
+                                        child: Icon(Icons.near_me),
+                                      ),
                                     )
                                   ],
                                 ),

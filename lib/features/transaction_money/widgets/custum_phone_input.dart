@@ -12,6 +12,7 @@ class CustomPhoneinput extends StatefulWidget {
   final Widget? suffixIcon;
   final bool isPassword;
   final TextEditingController? controller;
+  final String? prefixText ;
 
   const CustomPhoneinput({
     Key? key,
@@ -20,6 +21,7 @@ class CustomPhoneinput extends StatefulWidget {
     this.suffixIcon,
     this.isPassword = false,
     this.controller,
+    this.prefixText,
   }) : super(key: key);
 
   @override
@@ -61,8 +63,8 @@ class _CustomPhoneinputState extends State<CustomPhoneinput> {
             borderSide: BorderSide(color: Colors.black),
             borderRadius: BorderRadius.circular(8),
           ),
-          filled: true,
-          fillColor: Colors.transparent,
+          // filled: true,
+          // fillColor: Colors.transparent,
           hintText: widget.hintText,
           hintStyle: TextStyle(
             fontSize: 12,
@@ -70,11 +72,15 @@ class _CustomPhoneinputState extends State<CustomPhoneinput> {
           ),
           prefixIcon: widget.prefixIcon,
           suffixIcon: widget.suffixIcon,
+          prefixText: widget.prefixText, 
+          prefixStyle: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
   }
-
   @override
   void dispose() {
     _textEditingController.dispose();

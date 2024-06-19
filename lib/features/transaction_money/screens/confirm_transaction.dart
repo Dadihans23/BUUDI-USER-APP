@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:six_cash/features/add_money/controllers/add_money_controller.dart';
 import 'package:six_cash/features/setting/controllers/profile_screen_controller.dart';
@@ -30,56 +32,174 @@ import '../widgets/next_button_widget.dart';
 
 
 class ConfirmTransaction extends StatefulWidget {
-   ConfirmTransaction({Key? key}) : super(key: key);
+  final String imagePath;
+   ConfirmTransaction({Key? key ,required this.imagePath,}) : super(key: key) ;
 
   @override
   State<ConfirmTransaction> createState() => _ConfirmTransactionState();
-    final TextEditingController _phoneController = TextEditingController();
 
 }
 
 class _ConfirmTransactionState extends State<ConfirmTransaction> {
-      final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _amountController = TextEditingController();
 
+  double _fees = 0.0;
+  double _totalAmount = 0.0;
+
+  void _calculateFees(String value) {
+    setState(() {
+      if (value.isNotEmpty) {
+        double amount = double.tryParse(value) ?? 0.0;
+        _fees = amount * 0.03;
+        _totalAmount = amount - _fees;
+      } else {
+        _fees = 0.0;
+        _totalAmount = 0.0;
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false, // mettez cette propriété à false pour éviter les overflow
         appBar: CustomAppbarWidget(title:"BUUDI"),
-        body: SingleChildScrollView(
-                    physics: BouncingScrollPhysics(),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20 ,horizontal:20),
-                      child: Container(
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                child: SingleChildScrollView(
+                      physics: BouncingScrollPhysics(),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20 ,horizontal:20),
+                        child: Container(
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 80,
+                                child: Image.asset(widget.imagePath),
+                              ),
+                              Container(
+                                child: CustomPhoneinput(
+                                  hintText: 'entrez votre numero de telephone',
+                                  prefixIcon: Icon(Icons.phone),
+                                  controller: _phoneController,
+                                  prefixText: "+225 ",
+                                  
+                                ),
+                              ) , 
+                               Container(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                                  child: TextField(
+                                        onChanged: _calculateFees,
+                                        controller: _amountController,
+                                        inputFormatters: [
+                                          LengthLimitingTextInputFormatter(8),
+                                          FilteringTextInputFormatter.digitsOnly
+                                        ],
+                                        textAlign: TextAlign.center,
+                                        keyboardType: TextInputType.number,
+                                        style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold),
+                                        decoration: InputDecoration(
+                                          contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
+                                          enabledBorder: const OutlineInputBorder(
+                                            borderSide: BorderSide(color: Colors.black),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(color: Colors.orange),
+                                            borderRadius: BorderRadius.circular(8),
+                                          ),
+                                          // filled: true,
+                                          // fillColor: Colors.white,
+                                          hintText: 'Entrez le montant',
+                                          hintStyle: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.grey[400],
+                                          ),
+                                              suffixText: 'FCFA ',
+                                              suffixStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                        ),
+                                      ),
+                                ),
+                              ),
+                            
+                            ],
+                          ),
+                        ),
+                      )
+                      ),
+              ),
+             
+               Padding(
+                 padding: const EdgeInsets.symmetric(horizontal:12),
+                 child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10 , vertical: 20) ,
+                   child: Column(
+                    children: [
+                      Container(
                         child: Column(
                           children: [
-                            Container(
-                              height: 80,
-                              child: Image.asset(Images.orangelogo),
-                            ),
-                            Container(
-                              child: CustomPhoneinput(
-                                 hintText: 'entrez votre numero de telephone',
-                                prefixIcon: Icon(Icons.phone),
-                                controller: _phoneController,
-                              ),
-                            ) , 
-                             Container(
-                              child: CustomPhoneinput(
-                                 hintText: 'entrez votre numero de telephone',
-                                prefixIcon: Icon(Icons.phone),
-                                controller: _phoneController,
-                              ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                 Text(
+                                  "Frais d'opération",
+                                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "${_fees.toStringAsFixed(2)} FCFA",
+                                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ), 
+                             Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Montant à recevoir",
+                                  style: TextStyle(color: Colors.orangeAccent, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "${_totalAmount.toStringAsFixed(2)} FCFA",
+                                  style: TextStyle(color: Colors.orangeAccent, fontWeight: FontWeight.bold),
+                                ),
+                              ],
                             )
                           ],
                         ),
                       ),
-                    )
-                    )
+                      SizedBox(height: 10,),
+                      Container(
+                      padding: EdgeInsets.symmetric(horizontal: 70 , vertical: 10),
+                      decoration: BoxDecoration(
+                          color: Colors.orangeAccent,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Text("confirmer"),
+                      ),
+                    ],
+                   ),
+                  ),
+               ),
+              
+              
+            
+            ],
+          ),
+        )
       ),
     );
   }
 }
+
 // class confirmTransaction extends StatefulWidget {
 //   final String? transactionType;
 //   final ContactModel? contactModel;
@@ -326,3 +446,20 @@ class _ConfirmTransactionState extends State<ConfirmTransaction> {
 
 
 
+// Align(
+//                           child: GestureDetector(
+//                             child: Container(
+//                               decoration: BoxDecoration(
+//                                 color: Colors.orangeAccent,
+//                                 borderRadius: BorderRadius.circular(15),
+//                               ),
+//                               child: Padding(
+//                                 padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+//                                 child: Text(
+//                                   "confirmer",
+//                                   style: TextStyle(color: Colors.white),
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                         ),

@@ -111,7 +111,7 @@ class ThemeOneWidget extends StatelessWidget {
                               const SizedBox(height: Dimensions.paddingSizeExtraSmall,),
 
                               Text(
-                                'add_money'.tr, style: rubikRegular.copyWith(
+                                'Envoyer', style: rubikRegular.copyWith(
                                 fontSize: Dimensions.fontSizeDefault,
                                 color: Theme.of(context).textTheme.bodyLarge!.color,
                               ),)
