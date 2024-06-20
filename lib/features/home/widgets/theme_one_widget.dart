@@ -51,7 +51,9 @@ class ThemeOneWidget extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: Dimensions.paddingSizeLarge,
+                        // horizontal: Dimensions.paddingSizeLarge,
+                        horizontal: 15,
+
                       ),
 
                       child: GetBuilder<ProfileController>(
@@ -98,20 +100,16 @@ class ThemeOneWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(Dimensions.radiusSizeLarge),
                         color: Theme.of(context).secondaryHeaderColor,
                       ),
-
-
                       child: CustomInkWellWidget(
                         onTap: () => Get.to(const addMoneyFromOther()),
                         radius: Dimensions.radiusSizeLarge,
-                        child: Padding(padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeLarge),
+                        child: Padding(padding: const EdgeInsets.symmetric(horizontal:15),
                           child: Column(mainAxisAlignment: MainAxisAlignment.center,
-
                             children: [
-                              SizedBox(height: 34, child: Image.asset(Images.walletLogo)),
+                              SizedBox(height:34, child: Image.asset(Images.walletLogo)),
                               const SizedBox(height: Dimensions.paddingSizeExtraSmall,),
-
                               Text(
-                                'Envoyer', style: rubikRegular.copyWith(
+                                'envoyer', style: rubikRegular.copyWith(
                                 fontSize: Dimensions.fontSizeDefault,
                                 color: Theme.of(context).textTheme.bodyLarge!.color,
                               ),)
@@ -149,21 +147,21 @@ class ThemeOneWidget extends StatelessWidget {
                         )),
                       )),
                       
-                      if(splashController.configModel!.systemFeature!.cashOutStatus!)Expanded(child: OptionCardWidget2(
-                        icon: Icons.credit_card, text:  'Banking',
-                        // text: 'cash_out'.tr.replaceAll(' ', '\n')
-                        color: Colors.indigo,
-                        onTap:(){
-                           Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CreditCardsPage(
+                      // if(splashController.configModel!.systemFeature!.cashOutStatus!)Expanded(child: OptionCardWidget2(
+                      //   icon: Icons.credit_card, text:  'Banking',
+                      //   // text: 'cash_out'.tr.replaceAll(' ', '\n')
+                      //   color: Colors.indigo,
+                      //   onTap:(){
+                      //      Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => CreditCardsPage(
                           
-                          ),
-                        ),
-                      );
-                        }
-                      )),
+                      //     ),
+                      //   ),
+                      // );
+                      //   }
+                      // )),
 
                       if(splashController.configModel!.systemFeature!.sendMoneyRequestStatus!)Expanded(child: OptionCardWidget(
                         image: Images.requestMoneyLogo, text: 'request_money'.tr,
