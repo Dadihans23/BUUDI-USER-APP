@@ -56,6 +56,9 @@ class _KycVerifyScreenState extends State<KycVerifyScreen> {
                 Text('upload_your_image'.tr, style: rubikRegular),
                 const SizedBox(height: Dimensions.paddingSizeDefault,),
 
+                Text( " Selectionnez le recto puis le verso ", style: rubikRegular),
+                const SizedBox(height: Dimensions.paddingSizeDefault,),
+
                 Container(height: 100,padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeExtraSmall),
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,

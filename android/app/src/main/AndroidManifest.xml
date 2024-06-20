@@ -44,9 +44,10 @@
         android:name="${applicationName}"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
-        android:icon="@mipmap/logobuudi">
+        android:icon="@mipmap/logobuudineat">
         android:allowBackup="false"
         android:fullBackupContent="false"
+
 
         <activity
             android:name=".MainActivity"
@@ -95,6 +96,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
 
     </application>
 </manifest>

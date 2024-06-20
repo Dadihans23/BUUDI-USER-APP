@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> with WidgetsBindingObserver
 
       Get.find<SplashController>().getConfigData().then((value) {
         if(value.isOk) {
-          Timer(const Duration(milliseconds: 100), () async {
+          Timer(const Duration(milliseconds: 50), () async {
             Get.find<SplashController>().initSharedData().then((value) {
               UserShortDataModel? userData = Get.find<AuthController>().getUserData();
 
