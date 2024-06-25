@@ -107,9 +107,11 @@ class _KycVerifyScreenState extends State<KycVerifyScreen> {
                       showCustomSnackBarHelper('identity_number_is_empty'.tr);
                     }else if(kycVerifyController.identityImage.isEmpty) {
                       showCustomSnackBarHelper('please_upload_identity_image'.tr);
-                    }else if(kycVerifyController.dropDownSelectedValue == kycVerifyController.dropList[0]) {
-                      showCustomSnackBarHelper('select_identity_type'.tr);
-                    }else{
+                    }
+                    // else if(kycVerifyController.dropDownSelectedValue == kycVerifyController.dropList[0]) {
+                    //   showCustomSnackBarHelper('select_identity_type'.tr);
+                    // }
+                    else{
                       kycVerifyController.kycVerify(_identityNumberController.text).then((value)
                       => Get.find<ProfileController>().getProfileData(isUpdate: true, reload: true));
                     }
