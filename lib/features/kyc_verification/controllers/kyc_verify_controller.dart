@@ -97,11 +97,11 @@ class KycVerifyController extends GetxController implements GetxService {
 
 
 
-//     "Attestation d'Identité (ONECI)",
-//     "Carte National d'Identité (CNI)",
-//     "Passeport Ivoirien ",
-//     "Titre provisoire de sejour (ONI)",
-//     "Carte de resident etranger ",
-//     "Passeport Nationa d'Identité (Tous les pays)",
-//     "Couverture Maladie Universelle(CMU)",
-//     "Carte Nationale d'Identité (CEDEAO)",
+    // "Attestation d'Identité (ONECI)",
+    // "Carte National d'Identité (CNI)",
+    // "Passeport Ivoirien ",
+    // "Titre provisoire de sejour (ONI)",
+    // "Carte de resident etranger ",
+    // "Passeport Nationa d'Identité (Tous les pays)",
+    // "Couverture Maladie Universelle(CMU)",
+    // "Carte Nationale d'Identité (CEDEAO)",

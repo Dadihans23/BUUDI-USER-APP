@@ -1,6 +1,7 @@
 
 import 'package:expandable_bottom_sheet/expandable_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:six_cash/features/home/controllers/banner_controller.dart';
 import 'package:six_cash/features/home/controllers/home_controller.dart';
@@ -11,6 +12,7 @@ import 'package:six_cash/features/splash/controllers/splash_controller.dart';
 import 'package:six_cash/features/transaction_money/controllers/transaction_controller.dart';
 import 'package:six_cash/features/history/controllers/transaction_history_controller.dart';
 import 'package:six_cash/features/home/controllers/websitelink_controller.dart';
+import 'package:six_cash/features/transaction_money/screens/retrait_inter.dart';
 import 'package:six_cash/util/dimensions.dart';
 import 'package:six_cash/features/home/widgets/home_app_bar_widget.dart';
 import 'package:six_cash/features/home/widgets/bottomsheet_content_widget.dart';
@@ -19,6 +21,9 @@ import 'package:six_cash/features/home/widgets/theme_one_widget.dart';
 import 'package:six_cash/features/home/widgets/linked_website_widget.dart';
 import 'package:six_cash/features/home/widgets/theme_two_widget.dart';
 import 'package:six_cash/features/home/widgets/theme_three_widget.dart';
+
+import 'package:six_cash/util/images.dart';
+
 
 
 class HomeScreen extends StatefulWidget {
@@ -77,8 +82,410 @@ class _HomeScreenState extends State<HomeScreen> {
                         const ThemeOneWidget(),
 
 
-                        const SizedBox(height: Dimensions.paddingSizeDefault),
+                        // const SizedBox(height: Dimensions.paddingSizeDefault),
+                        Container(
+                          padding: EdgeInsets.symmetric(vertical: 10 ),
+                          child: Column(
+                            children: [
+Container(
+  padding: EdgeInsets.symmetric(horizontal: 15),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        padding: EdgeInsets.symmetric(vertical: 10),
+        child: Container(
+          height: 50,
+          width: 80,
+          child: Image.asset(Images.ivoire, fit: BoxFit.cover),
+        ),
+      ),
+      Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.orangelogo, percentage: 0.03),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.orangelogo),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.wavelogo, percentage: 0.02),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.wavelogo),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.mtnlogo, percentage: 0.015),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.mtnlogo),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.moovlogo),
+              ),
+            ),
+          ],
+        ),
+      ),
+      Divider(
+        color: Colors.grey,
+        thickness: 0.5,
+      )
+    ],
+  ),
+),
+SizedBox(height: 20),
+Container(
+  padding: EdgeInsets.symmetric(horizontal: 15),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        padding: EdgeInsets.symmetric(vertical: 10),
+        child: Container(
+           height: 50,
+          width: 80,
+          child: Image.asset(Images.senegal, fit: BoxFit.cover),
+        ),
+      ),
+      Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.orangelogo, percentage: 0.03),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.orangelogo, fit: BoxFit.cover),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.freemoney, percentage: 0.02),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.freemoney, fit: BoxFit.cover),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.emoney, percentage: 0.015),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.emoney, fit: BoxFit.cover),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.wizall, percentage: 0.025),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.wizall, fit: BoxFit.cover),
+              ),
+            ),
+          ],
+        ),
+      ),
+      Divider(
+        color: Colors.grey,
+        thickness: 0.5,
+      )
+    ],
+  ),
+),
+SizedBox(height: 20),
+Container(
+  padding: EdgeInsets.symmetric(horizontal: 15),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        padding: EdgeInsets.symmetric(vertical: 10),
+        child: Container(
+          height: 50,
+          width: 80,
+          child: Image.asset(Images.bf, fit: BoxFit.cover),
+        ),
+      ),
+      Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.orangelogo, percentage: 0.03),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.orangelogo, fit: BoxFit.cover),
+              ),
+            ),
+            SizedBox(width: 20),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.moovlogo, fit: BoxFit.cover),
+              ),
+            ),
+          ],
+        ),
+      ),
+      Divider(
+        color: Colors.grey,
+        thickness: 0.5,
+      )
+    ],
+  ),
+),
+SizedBox(height: 20),
+Container(
+  padding: EdgeInsets.symmetric(horizontal: 15),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        padding: EdgeInsets.symmetric(vertical: 10),
+        child: Container(
+          height: 50,
+          width: 80,
+          child: Image.asset(Images.benin, fit: BoxFit.cover),
+        ),
+      ),
+      Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.moovlogo, fit: BoxFit.cover),
+              ),
+            ),
+            SizedBox(width: 20),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.mtnlogo, percentage: 0.02),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.mtnlogo, fit: BoxFit.cover),
+              ),
+            ),
+          ],
+        ),
+      ),
+      Divider(
+        color: Colors.grey,
+        thickness: 0.5,
+      )
+    ],
+  ),
+),
+Container(
+  padding: EdgeInsets.symmetric(horizontal: 15),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        padding: EdgeInsets.symmetric(vertical: 10),
+        child: Container(
+          height: 50,
+          width: 80,
+          child: Image.asset(Images.togo, fit: BoxFit.cover),
+        ),
+      ),
+      Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.moovlogo, fit: BoxFit.cover),
+              ),
+            ),
+            SizedBox(width: 20),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.tmoney, percentage: 0.02),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.tmoney, fit: BoxFit.cover),
+              ),
+            ),
+          ],
+        ),
+      ),
+      Divider(
+        color: Colors.grey,
+        thickness: 0.5,
+      )
+    ],
+  ),
+),
+Container(
+  padding: EdgeInsets.symmetric(horizontal: 15),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        padding: EdgeInsets.symmetric(vertical: 10),
+        child: Container(
+         height: 50,
+          width: 80,
+          child: Image.asset(Images.mali, fit: BoxFit.cover),
+        ),
+      ),
+      Container(
+        child: Row(
+          children: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.moovlogo, fit: BoxFit.cover),
+              ),
+            ),
+            SizedBox(width: 20),
+          ],
+        ),
+      ),
+      Divider(
+        color: Colors.grey,
+        thickness: 0.5,
+      )
+    ],
+  ),
+),
 
+
+                              Container(),
+                            ],
+                          ),
+                        ) ,
                         const LinkedWebsiteWidget(),
                         const SizedBox(height: 80),
 

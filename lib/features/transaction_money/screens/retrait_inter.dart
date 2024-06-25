@@ -33,17 +33,17 @@ import '../widgets/for_person_widget.dart';
 import '../widgets/next_button_widget.dart';
 
 
-class ConfirmTransaction extends StatefulWidget {
+class retraitInter extends StatefulWidget {
   final String imagePath;
   final double percentage; 
-   ConfirmTransaction({Key? key ,required this.imagePath, required this.percentage}) : super(key: key) ;
+   retraitInter({Key? key ,required this.imagePath, required this.percentage}) : super(key: key) ;
 
   @override
-  State<ConfirmTransaction> createState() => _ConfirmTransactionState();
+  State<retraitInter> createState() => _retraitInterState();
 
 }
 
-class _ConfirmTransactionState extends State<ConfirmTransaction> {
+class _retraitInterState extends State<retraitInter> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _amountController = TextEditingController();
 
@@ -67,7 +67,7 @@ class _ConfirmTransactionState extends State<ConfirmTransaction> {
     return  SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false, // mettez cette propriété à false pour éviter les overflow
-        appBar: CustomAppbarWidget(title:"BUUDI"),
+        appBar: CustomAppbarWidget(title:"RETRAIT"),
         body: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
@@ -92,7 +92,6 @@ class _ConfirmTransactionState extends State<ConfirmTransaction> {
                                   prefixIcon: Icon(Icons.phone),
                                   controller: _phoneController,
                                   prefixText: "+225 ",
-                                  
                                 ),
                               ) , 
                                Container(
@@ -192,9 +191,6 @@ class _ConfirmTransactionState extends State<ConfirmTransaction> {
                    ),
                   ),
                ),
-              
-              
-            
             ],
           ),
         )

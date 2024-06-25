@@ -42,7 +42,7 @@ class TransactionHistoryWidget extends StatelessWidget {
     }catch(e){
      userName = 'no_user'.tr;
     }
-
+    print(transactions!.transactionType!.tr);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeExtraSmall),
       child: Stack(
@@ -65,7 +65,9 @@ class TransactionHistoryWidget extends StatelessWidget {
                 Column(crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        transactions!.transactionType!.tr,
+                       transactions!.transactionType!.tr == 'Argent reçu' 
+                          ? 'vous avez reçu' 
+                          : 'vous avez envoyé',
                         style: rubikMedium.copyWith(fontSize: Dimensions.fontSizeDefault),
                       ),
                       const SizedBox(height: Dimensions.paddingSizeSuperExtraSmall),

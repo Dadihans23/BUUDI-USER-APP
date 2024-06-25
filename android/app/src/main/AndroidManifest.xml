@@ -44,7 +44,7 @@
         android:name="${applicationName}"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
-        android:icon="@mipmap/logobuudineat">
+        android:icon="@mipmap/ic_launcher">
         android:allowBackup="false"
         android:fullBackupContent="false"
 

@@ -20,6 +20,20 @@ class Images {
     static const String mtnlogo = 'assets/image/mtnlogo.png';
     static const String wavelogo = 'assets/image/wavelogo2.png';
     static const String moovlogo = 'assets/image/moovlogo.png';
+    
+    static const String emoney = 'assets/image/e_money_senegal.png';
+    static const String freemoney = 'assets/image/free_money_senegal.png';
+    static const String wizall = 'assets/image/wizall.png';
+    static const String tmoney = 'assets/image/t_money.png';
+    
+
+    static const String ivoire = 'assets/image/ivoire.png';
+    static const String mali = 'assets/image/mali.png';
+    static const String benin = 'assets/image/benin.png';
+    static const String togo = 'assets/image/togo.png';
+    static const String bf = 'assets/image/bf.png';
+    static const String senegal = 'assets/image/senegal.png';
+
 
 
 
