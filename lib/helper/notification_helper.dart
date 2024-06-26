@@ -17,7 +17,7 @@ import 'package:six_cash/util/app_constants.dart';
 class NotificationHelper {
 
   static Future<void> initialize(FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin) async {
-    var androidInitialize = const AndroidInitializationSettings('notification_icon');
+    var androidInitialize = const AndroidInitializationSettings('ic_launcher');
     var iOSInitialize = const DarwinInitializationSettings();
     var initializationsSettings = InitializationSettings(android: androidInitialize, iOS: iOSInitialize);
     flutterLocalNotificationsPlugin.initialize(initializationsSettings, onDidReceiveNotificationResponse: (payload){
@@ -64,11 +64,15 @@ class NotificationHelper {
     if(image != null && image.isNotEmpty) {
       try{
         await showBigPictureNotificationHiddenLargeIcon(title, body, orderID, image, fln!, payload: playLoad);
+        print(" avec image ");
       }catch(e) {
         await showBigTextNotification(title, body!, orderID, fln!, payload: playLoad);
+        print(" sans1 image ");
       }
     }else {
       await showBigTextNotification(title, body!, orderID, fln!, payload: playLoad);
+      print(" sans 2 image ");
+
     }
   }
 
