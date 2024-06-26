@@ -36,7 +36,8 @@ import '../widgets/next_button_widget.dart';
 class ConfirmTransaction extends StatefulWidget {
   final String imagePath;
   final double percentage; 
-   ConfirmTransaction({Key? key ,required this.imagePath, required this.percentage}) : super(key: key) ;
+  final int indicatif ;
+   ConfirmTransaction({Key? key ,required this.imagePath, required this.percentage , required this.indicatif}) : super(key: key) ;
 
   @override
   State<ConfirmTransaction> createState() => _ConfirmTransactionState();
@@ -68,134 +69,148 @@ class _ConfirmTransactionState extends State<ConfirmTransaction> {
       child: Scaffold(
         resizeToAvoidBottomInset: false, // mettez cette propriété à false pour éviter les overflow
         appBar: CustomAppbarWidget(title:"BUUDI"),
-        body: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                child: SingleChildScrollView(
-                      physics: BouncingScrollPhysics(),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20 ,horizontal:20),
-                        child: Container(
+        body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  child: SingleChildScrollView(
+                        physics: BouncingScrollPhysics(),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20 ,horizontal:20),
+                          child: Container(
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 80,
+                                  child: Image.asset(widget.imagePath),
+                                ),
+                                 Padding(
+                                  padding: EdgeInsets.symmetric( horizontal: 30 , vertical: 20),
+                                   child: Container(
+                                    padding: EdgeInsets.symmetric( horizontal: 10 , vertical: 10),
+                                    color: Colors.grey.shade200,
+                                    child: Text("Assurez vous que le numéro de l'expéditeur est correct. En cas de transfert erroné , BUUDI ne saurait garantir le retour de vos fonds",
+                                    style: TextStyle(fontSize: 13 , fontWeight: FontWeight.w700),
+                                    ) ,
+                                                                 ),
+                                 ),
+          
+                                Container(
+                                  child: CustomPhoneinput(
+                                    hintText: 'entrez votre numero de telephone',
+                                    prefixIcon: Icon(Icons.phone),
+                                    controller: _phoneController,
+                                    prefixText: '+' + widget.indicatif.toString(),
+                                    
+                                  ),
+                                ) , 
+                                 Container(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                                    child: TextField(
+                                          onChanged: _calculateFees,
+                                          controller: _amountController,
+                                          inputFormatters: [
+                                            LengthLimitingTextInputFormatter(8),
+                                            FilteringTextInputFormatter.digitsOnly
+                                          ],
+                                          textAlign: TextAlign.center,
+                                          keyboardType: TextInputType.number,
+                                          style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold),
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
+                                            enabledBorder: const OutlineInputBorder(
+                                              borderSide: BorderSide(color: Colors.black),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(color: Colors.orange),
+                                              borderRadius: BorderRadius.circular(8),
+                                            ),
+                                            // filled: true,
+                                            // fillColor: Colors.white,
+                                            hintText: 'Entrez le montant',
+                                            hintStyle: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.grey[400],
+                                            ),
+                                                suffixText: 'FCFA ',
+                                                suffixStyle: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                          ),
+                                        ),
+                                  ),
+                                ),
+                              
+                              ],
+                            ),
+                          ),
+                        )
+                        ),
+                ),
+               
+                 Padding(
+                   padding: const EdgeInsets.symmetric(horizontal:12),
+                   child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10 , vertical: 20) ,
+                     child: Column(
+                      children: [
+                        Container(
                           child: Column(
                             children: [
-                              Container(
-                                height: 80,
-                                child: Image.asset(widget.imagePath),
-                              ),
-                              Container(
-                                child: CustomPhoneinput(
-                                  hintText: 'entrez votre numero de telephone',
-                                  prefixIcon: Icon(Icons.phone),
-                                  controller: _phoneController,
-                                  prefixText: "+225 ",
-                                  
-                                ),
-                              ) , 
-                               Container(
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                                  child: TextField(
-                                        onChanged: _calculateFees,
-                                        controller: _amountController,
-                                        inputFormatters: [
-                                          LengthLimitingTextInputFormatter(8),
-                                          FilteringTextInputFormatter.digitsOnly
-                                        ],
-                                        textAlign: TextAlign.center,
-                                        keyboardType: TextInputType.number,
-                                        style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold),
-                                        decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
-                                          enabledBorder: const OutlineInputBorder(
-                                            borderSide: BorderSide(color: Colors.black),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(color: Colors.orange),
-                                            borderRadius: BorderRadius.circular(8),
-                                          ),
-                                          // filled: true,
-                                          // fillColor: Colors.white,
-                                          hintText: 'Entrez le montant',
-                                          hintStyle: TextStyle(
-                                            fontSize: 12,
-                                            color: Colors.grey[400],
-                                          ),
-                                              suffixText: 'FCFA ',
-                                              suffixStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                        ),
-                                      ),
-                                ),
-                              ),
-                            
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                   Text(
+                                    "Frais d'opération",
+                                    style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    "${_fees.toStringAsFixed(2)} FCFA",
+                                    style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ), 
+                               Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Montant à recevoir",
+                                    style: TextStyle(color: Colors.orangeAccent, fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    "${_totalAmount.toStringAsFixed(2)} FCFA",
+                                    style: TextStyle(color: Colors.orangeAccent, fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              )
                             ],
                           ),
                         ),
-                      )
-                      ),
-              ),
-             
-               Padding(
-                 padding: const EdgeInsets.symmetric(horizontal:12),
-                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10 , vertical: 20) ,
-                   child: Column(
-                    children: [
-                      Container(
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                 Text(
-                                  "Frais d'opération",
-                                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  "${_fees.toStringAsFixed(2)} FCFA",
-                                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ), 
-                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Montant à recevoir",
-                                  style: TextStyle(color: Colors.orangeAccent, fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  "${_totalAmount.toStringAsFixed(2)} FCFA",
-                                  style: TextStyle(color: Colors.orangeAccent, fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            )
-                          ],
+                        SizedBox(height: 10,),
+                        Container(
+                        padding: EdgeInsets.symmetric(horizontal: 70 , vertical: 10),
+                        decoration: BoxDecoration(
+                            color: Colors.orangeAccent,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Text("confirmer"),
                         ),
-                      ),
-                      SizedBox(height: 10,),
-                      Container(
-                      padding: EdgeInsets.symmetric(horizontal: 70 , vertical: 10),
-                      decoration: BoxDecoration(
-                          color: Colors.orangeAccent,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text("confirmer"),
-                      ),
-                    ],
-                   ),
-                  ),
-               ),
+                      ],
+                     ),
+                    ),
+                 ),
+                
+                
               
-              
-            
-            ],
+              ],
+            ),
           ),
         )
       ),

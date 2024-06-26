@@ -81,10 +81,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         themeIndex == 3 ? const ThemeThreeWidget() :
                         const ThemeOneWidget(),
 
+                        Container(
+                          child: Text("Retrait Mobile Money" , style: TextStyle( fontSize: 22 , fontWeight: FontWeight.w600),),
+                          padding: EdgeInsets.symmetric(vertical: 15),
+                        ),
 
                         // const SizedBox(height: Dimensions.paddingSizeDefault),
                         Container(
-                          padding: EdgeInsets.symmetric(vertical: 10 ),
+                          padding: EdgeInsets.symmetric(vertical: 15 ),
                           child: Column(
                             children: [
 Container(
@@ -93,11 +97,25 @@ Container(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Container(
-        padding: EdgeInsets.symmetric(vertical: 10),
-        child: Container(
-          height: 50,
-          width: 80,
-          child: Image.asset(Images.ivoire, fit: BoxFit.cover),
+        child: Row(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: ClipOval(
+                child: Container(
+                  height: 70,
+                  width: 80,
+                  child: Image.asset(Images.ivoire, fit: BoxFit.cover),
+                ),
+              ),
+            ),
+              SizedBox(width: 20,),
+             Container(
+              child: Text("Cote d'ivoire" , style: TextStyle( fontSize: 18 , fontWeight: FontWeight.w600),),
+              padding: EdgeInsets.symmetric(vertical: 15),
+            ),
+
+          ],
         ),
       ),
       Container(
@@ -180,12 +198,26 @@ Container(
   child: Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Container(
-        padding: EdgeInsets.symmetric(vertical: 10),
-        child: Container(
-           height: 50,
-          width: 80,
-          child: Image.asset(Images.senegal, fit: BoxFit.cover),
+    Container(
+        child: Row(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: ClipOval(
+                child: Container(
+                  height: 70,
+                  width: 80,
+                  child: Image.asset(Images.senegal, fit: BoxFit.cover),
+                ),
+              ),
+            ),
+              SizedBox(width: 20,),
+             Container(
+              child: Text("Senegal" , style: TextStyle( fontSize: 18 , fontWeight: FontWeight.w600),),
+              padding: EdgeInsets.symmetric(vertical: 15),
+            ),
+
+          ],
         ),
       ),
       Container(
@@ -269,11 +301,25 @@ Container(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Container(
-        padding: EdgeInsets.symmetric(vertical: 10),
-        child: Container(
-          height: 50,
-          width: 80,
-          child: Image.asset(Images.bf, fit: BoxFit.cover),
+        child: Row(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: ClipOval(
+                child: Container(
+                  height: 70,
+                  width: 80,
+                  child: Image.asset(Images.bf, fit: BoxFit.cover),
+                ),
+              ),
+            ),
+              SizedBox(width: 20,),
+             Container(
+              child: Text("Burkina Faso" , style: TextStyle( fontSize: 18 , fontWeight: FontWeight.w600),),
+              padding: EdgeInsets.symmetric(vertical: 15),
+            ),
+
+          ],
         ),
       ),
       Container(
@@ -328,11 +374,25 @@ Container(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Container(
-        padding: EdgeInsets.symmetric(vertical: 10),
-        child: Container(
-          height: 50,
-          width: 80,
-          child: Image.asset(Images.benin, fit: BoxFit.cover),
+        child: Row(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: ClipOval(
+                child: Container(
+                  height: 70,
+                  width: 80,
+                  child: Image.asset(Images.benin, fit: BoxFit.cover),
+                ),
+              ),
+            ),
+              SizedBox(width: 20,),
+             Container(
+              child: Text("Benin" , style: TextStyle( fontSize: 18 , fontWeight: FontWeight.w600),),
+              padding: EdgeInsets.symmetric(vertical: 15),
+            ),
+
+          ],
         ),
       ),
       Container(
@@ -386,11 +446,25 @@ Container(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Container(
-        padding: EdgeInsets.symmetric(vertical: 10),
-        child: Container(
-          height: 50,
-          width: 80,
-          child: Image.asset(Images.togo, fit: BoxFit.cover),
+        child: Row(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: ClipOval(
+                child: Container(
+                  height: 70,
+                  width: 80,
+                  child: Image.asset(Images.togo, fit: BoxFit.cover),
+                ),
+              ),
+            ),
+              SizedBox(width: 20,),
+             Container(
+              child: Text("Togo" , style: TextStyle( fontSize: 18 , fontWeight: FontWeight.w600),),
+              padding: EdgeInsets.symmetric(vertical: 15),
+            ),
+
+          ],
         ),
       ),
       Container(
@@ -444,11 +518,25 @@ Container(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Container(
-        padding: EdgeInsets.symmetric(vertical: 10),
-        child: Container(
-         height: 50,
-          width: 80,
-          child: Image.asset(Images.mali, fit: BoxFit.cover),
+        child: Row(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: ClipOval(
+                child: Container(
+                  height: 70,
+                  width: 80,
+                  child: Image.asset(Images.mali, fit: BoxFit.cover),
+                ),
+              ),
+            ),
+              SizedBox(width: 20,),
+             Container(
+              child: Text("Mali" , style: TextStyle( fontSize: 18 , fontWeight: FontWeight.w600),),
+              padding: EdgeInsets.symmetric(vertical: 15),
+            ),
+
+          ],
         ),
       ),
       Container(
@@ -470,6 +558,22 @@ Container(
               ),
             ),
             SizedBox(width: 20),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.orangelogo, percentage: 0.025),
+                  ),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Image.asset(Images.orangelogo, fit: BoxFit.cover),
+              ),
+            ),
+            SizedBox(width: 20),
           ],
         ),
       ),
@@ -480,9 +584,7 @@ Container(
     ],
   ),
 ),
-
-
-                              Container(),
+                      Container(),
                             ],
                           ),
                         ) ,

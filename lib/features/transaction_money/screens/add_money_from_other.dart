@@ -56,7 +56,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Carte a credité" , style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold),),
+            Text("Carte à credité" , style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold),),
             Row(
               children: [
                 Container(
@@ -72,7 +72,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("la carte buudi" ,style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500)),
+                      Text("le compte buudi" ,style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500)),
                       Text( profileController.userInfo!.phone!,style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500)),
                       Text( "solde : ${PriceConverterHelper.balanceWithSymbol(balance: profileController.userInfo!.balance.toString())}",
                       style: TextStyle(color: Colors.green , fontWeight: FontWeight.bold)),
@@ -89,7 +89,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
           children: [
             Container(
               padding: EdgeInsets.symmetric(vertical: 15),
-              child: Text("compte a debiter" ,style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold , fontSize: 18),),
+              child: Text("compte à débiter" ,style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold , fontSize: 18),),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20 , horizontal: 25),
@@ -103,7 +103,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.orangelogo, percentage : 0.03  ),
+                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.orangelogo, percentage : 0.03  , indicatif: 225, ),
                           ),
                         );
                       },
@@ -134,8 +134,17 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                         )
                                       ],
                                     ),
+
                                     Container(
-                                      child: Icon(Icons.near_me),
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("3%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
                                     )
                                   ],
                                 ),
@@ -153,7 +162,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                               Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.mtnlogo ,  percentage : 0.03   ),
+                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.mtnlogo ,  percentage : 0.03 , indicatif: 225,  ),
                             ),
                           );
                         },
@@ -184,9 +193,17 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                           )
                                         ],
                                       ),
-                                      Container(
-                                          child: Icon(Icons.near_me),
-                                      )
+                                     Container(
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text(" 3%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
+                                    )
                                     ],
                                   ),
                                 )
@@ -202,7 +219,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                               Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.moovlogo ,  percentage : 0.03 ),
+                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.moovlogo ,  percentage : 0.03 , indicatif: 225, ),
                             ),
                           );
                         },
@@ -234,8 +251,16 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                         ],
                                       ),
                                       Container(
-                                          child: Icon(Icons.near_me),
-                                      )
+                                        child: Row(
+                                        children: [
+                                          Container( child: Text("3%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
+                                    )
                                     ],
                                   ),
                                 )
@@ -251,7 +276,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                               Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.wavelogo ,  percentage : 0.025 ),
+                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.wavelogo ,  percentage : 0.025  , indicatif: 225,),
                             ),
                           );
                         },
@@ -283,8 +308,16 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                         ],
                                       ),
                                       Container(
-                                          child: Icon(Icons.near_me),
-                                      )
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("2.5%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
+                                    )
                                     ],
                                   ),
                                 )
@@ -317,7 +350,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.orangelogo, percentage : 0.02  ),
+                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.orangelogo, percentage : 0.02 , indicatif: 221, ),
                           ),
                         );
                       },
@@ -348,8 +381,16 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                         )
                                       ],
                                     ),
-                                    Container(
-                                      child: Icon(Icons.near_me),
+                                   Container(
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("2%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
                                     )
                                   ],
                                 ),
@@ -367,7 +408,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                               Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.freemoney ,  percentage : 0.03   ),
+                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.freemoney ,  percentage : 0.03 , indicatif: 221,  ),
                             ),
                           );
                         },
@@ -399,8 +440,16 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                         ],
                                       ),
                                       Container(
-                                          child: Icon(Icons.near_me),
-                                      )
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("2%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
+                                    )
                                     ],
                                   ),
                                 )
@@ -416,7 +465,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                               Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.emoney ,  percentage : 0.02 ),
+                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.emoney ,  percentage : 0.02 , indicatif: 221,),
                             ),
                           );
                         },
@@ -448,8 +497,16 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                         ],
                                       ),
                                       Container(
-                                          child: Icon(Icons.near_me),
-                                      )
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("2%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
+                                    )
                                     ],
                                   ),
                                 )
@@ -465,7 +522,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                               Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.wizall ,  percentage : 0.02 ),
+                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.wizall ,  percentage : 0.02 , indicatif: 221,),
                             ),
                           );
                         },
@@ -497,8 +554,16 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                         ],
                                       ),
                                       Container(
-                                          child: Icon(Icons.near_me),
-                                      )
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("2%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
+                                    )
                                     ],
                                   ),
                                 )
@@ -509,6 +574,64 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                         ),
                       ),
                     ),
+                    GestureDetector(
+                        onTap: () {
+                              Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.wizall ,  percentage : 0.02 , indicatif: 221,),
+                            ),
+                          );
+                        },
+                      child: Container(
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(vertical: 10),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.shade300,
+                                  borderRadius: BorderRadius.circular(5)
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 15 , vertical: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Container(
+                                            height: 45,
+                                            child: Image.asset(Images.wavelogo),
+                                          ),
+                                          SizedBox(width:10),
+                                          Container(
+                                            child: Text("WAVE" , style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500 , fontSize: 15) ),
+                                          )
+                                        ],
+                                      ),
+                                      Container(
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("2.5%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                    ],
+                                  ),
+                                )
+                              ),
+                            ),
+                            
+                          ],
+                        ),
+                      ),
+                    ),
+              
               
                   ],
                 ),
@@ -526,7 +649,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.moovlogo, percentage : 0.02  ),
+                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.moovlogo, percentage : 0.03 , indicatif: 223, ),
                           ),
                         );
                       },
@@ -558,7 +681,15 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                       ],
                                     ),
                                     Container(
-                                      child: Icon(Icons.near_me),
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("3%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
                                     )
                                   ],
                                 ),
@@ -570,24 +701,12 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                       ),
                       ),
                     ),
-
-                  ],
-                ),
-              ),
-            ),
-             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20 , horizontal: 25),
-              child: Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("BURKINA FASO",style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold , fontSize: 15),),
                     GestureDetector(
                       onTap:(){
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.orangelogo, percentage : 0.025  ),
+                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.orangelogo, percentage : 0.02 , indicatif: 223, ),
                           ),
                         );
                       },
@@ -619,7 +738,84 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                       ],
                                     ),
                                     Container(
-                                      child: Icon(Icons.near_me),
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("2%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              )
+                            ),
+                          ),
+                          
+                        ],
+                      ),
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+            ),
+             Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20 , horizontal: 25),
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("BURKINA FASO",style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold , fontSize: 15),),
+                    GestureDetector(
+                      onTap:(){
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.orangelogo, percentage : 0.025 , indicatif: 226,),
+                          ),
+                        );
+                      },
+                      child:Container(
+                        child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(vertical: 10),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.grey.shade300,
+                                borderRadius: BorderRadius.circular(5)
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 15 , vertical: 10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Container(
+                                          height: 45,
+                                          child: Image.asset(Images.orangelogo),
+                                        ),
+                                        SizedBox(width:10),
+                                        Container(
+                                          child: Text("ORANGE" , style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500 , fontSize: 15) ),
+                                        )
+                                      ],
+                                    ),
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("3%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
                                     )
                                   ],
                                 ),
@@ -636,7 +832,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.moovlogo, percentage : 0.025  ),
+                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.moovlogo, percentage : 0.025 , indicatif: 226, ),
                           ),
                         );
                       },
@@ -668,7 +864,15 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                       ],
                                     ),
                                     Container(
-                                      child: Icon(Icons.near_me),
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("3%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
                                     )
                                   ],
                                 ),
@@ -697,7 +901,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.moovlogo, percentage : 0.02  ),
+                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.moovlogo, percentage : 0.02   , indicatif: 229,),
                           ),
                         );
                       },
@@ -728,8 +932,16 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                         )
                                       ],
                                     ),
-                                    Container(
-                                      child: Icon(Icons.near_me),
+                                   Container(
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("2%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
                                     )
                                   ],
                                 ),
@@ -746,7 +958,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.mtnlogo, percentage : 0.02  ),
+                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.mtnlogo, percentage : 0.02 , indicatif: 229, ),
                           ),
                         );
                       },
@@ -778,7 +990,15 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                       ],
                                     ),
                                     Container(
-                                      child: Icon(Icons.near_me),
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("2%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
                                     )
                                   ],
                                 ),
@@ -807,7 +1027,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.moovlogo, percentage : 0.025  ),
+                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.moovlogo, percentage : 0.025 , indicatif: 228, ),
                           ),
                         );
                       },
@@ -839,7 +1059,15 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                       ],
                                     ),
                                     Container(
-                                      child: Icon(Icons.near_me),
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("3%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
                                     )
                                   ],
                                 ),
@@ -851,12 +1079,12 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                       ),
                       ),
                     ),
-                         GestureDetector(
+                    GestureDetector(
                       onTap:(){
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.tmoney, percentage : 0.025  ),
+                            pageBuilder: (context, animation, secondaryAnimation) => ConfirmTransaction(imagePath:  Images.tmoney, percentage : 0.025 , indicatif: 228,  ),
                           ),
                         );
                       },
@@ -888,7 +1116,15 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                                       ],
                                     ),
                                     Container(
-                                      child: Icon(Icons.near_me),
+                                      child: Row(
+                                        children: [
+                                          Container( child: Text("3%" , style: TextStyle(fontWeight: FontWeight.w500),),),
+                                          SizedBox(width: 7,),
+                                          Container(
+                                              child: Icon(Icons.near_me),
+                                          )
+                                        ],
+                                      ),
                                     )
                                   ],
                                 ),

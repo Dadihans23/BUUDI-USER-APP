@@ -4,7 +4,7 @@ import 'package:six_cash/common/models/on_boarding_model.dart';
 import 'images.dart';
 
 class AppConstants {
-  static const String appName = 'buudi';
+  static const String appName = 'BUUDI';
   static const String baseUrl = 'https://buudi.africa';
   static const bool demo = false;
   static const double appVersion = 4.3;

@@ -84,10 +84,10 @@ class ThemeOneWidget extends StatelessWidget {
                                     fontSize: Dimensions.fontSizeExtraLarge,
                                   ),
                                 ),
-                                const SizedBox(height: Dimensions.paddingSizeExtraSmall),
-                                profileController.userInfo != null?
-                                Text('(${'sent'.tr} ${PriceConverterHelper.balanceWithSymbol(balance: profileController.userInfo!.pendingBalance != null?profileController.userInfo!.pendingBalance.toString():0 as String?)} ${'withdraw_req'.tr})',
-                                    style: rubikMedium.copyWith(fontSize: Dimensions.fontSizeSmall,)):const SizedBox(),
+                                // const SizedBox(height: Dimensions.paddingSizeExtraSmall),
+                                // profileController.userInfo != null?
+                                // Text('(${'sent'.tr} ${PriceConverterHelper.balanceWithSymbol(balance: profileController.userInfo!.pendingBalance != null?profileController.userInfo!.pendingBalance.toString():0 as String?)} ${'withdraw_req'.tr})',
+                                //     style: rubikMedium.copyWith(fontSize: Dimensions.fontSizeSmall,)):const SizedBox(),
                               ],
                             );
                           }
@@ -130,7 +130,8 @@ class ThemeOneWidget extends StatelessWidget {
                   child: Row(
                     children: [
                       if(splashController.configModel!.systemFeature!.sendMoneyStatus!) Expanded(child: OptionCardWidget(
-                        image: Images.sendMoneyLogo, text: 'send_money'.tr.replaceAll(' ', '\n'),
+                        image: Images.sendMoneyLogo, text: "Envoyer",
+                        // image: Images.sendMoneyLogo, text: 'send_money'.tr.replaceAll(' ', '\n'),
                         color: Theme.of(context).secondaryHeaderColor,
                         onTap: ()=> Get.to(()=> const TransactionMoneyScreen(
                           fromEdit: false,
@@ -139,7 +140,9 @@ class ThemeOneWidget extends StatelessWidget {
                       )),
 
                       if(splashController.configModel!.systemFeature!.cashOutStatus!)Expanded(child: OptionCardWidget(
-                        image: Images.cashOutLogo, text: 'cash_out'.tr.replaceAll(' ', '\n'),
+                        image: Images.cashOutLogo, text: "Retirer",
+                        // image: Images.cashOutLogo, text: 'cash_out'.tr.replaceAll(' ', '\n'),
+
                         color: ColorResources.getCashOutCardColor(),
                         onTap: ()=> Get.to(()=> const TransactionMoneyScreen(
                           fromEdit: false,
@@ -164,7 +167,9 @@ class ThemeOneWidget extends StatelessWidget {
                       // )),
 
                       if(splashController.configModel!.systemFeature!.sendMoneyRequestStatus!)Expanded(child: OptionCardWidget(
-                        image: Images.requestMoneyLogo, text: 'request_money'.tr,
+                        // image: Images.requestMoneyLogo, text: 'request_money'.tr,
+                        image: Images.requestMoneyLogo, text: "Demander",
+
                         color: ColorResources.getRequestMoneyCardColor(),
                         onTap: ()=> Get.to(()=> const TransactionMoneyScreen(
                           fromEdit: false,

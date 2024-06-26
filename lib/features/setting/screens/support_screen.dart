@@ -19,6 +19,7 @@ class SupportScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppbarWidget(title: '24_support'.tr),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -30,7 +31,7 @@ class SupportScreen extends StatelessWidget {
             Text('need_any_help'.tr, style: rubikMedium.copyWith(fontSize: Dimensions.fontSizeOverOverLarge, color: ColorResources.getSupportScreenTextColor())),
 
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeDefault),
+              padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeDefault , horizontal: 20),
               child: Text('feel_free_to_contact'.tr, style: rubikRegular.copyWith(fontSize: Dimensions.fontSizeLarge, color: ColorResources.getSupportScreenTextColor()), textAlign: TextAlign.center),
             ),
 
@@ -70,6 +71,32 @@ class SupportScreen extends StatelessWidget {
                   child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [const Icon(Icons.email), Padding(
                     padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall),
                     child: Text('send_email'.tr, style: rubikRegular.copyWith(fontSize: Dimensions.fontSizeLarge)),
+                  )],)),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeLarge , vertical: 20),
+              child: InkWell(
+                highlightColor: Theme.of(context).secondaryHeaderColor,
+                onTap: () async {
+                  // final Uri params = Uri(scheme: 'mailto', path:"https://wa.me/+2250768223836"); String  url = params.toString();
+                  // if (await canLaunchUrl(Uri.parse(url))) {
+                  //   await launchUrl(Uri.parse(url));
+                  // }
+                   var whatsappUrl = "https://wa.me/+2250768223836";
+                    if (await canLaunch(whatsappUrl)) {
+                      await launch(whatsappUrl);
+                    } else {
+                      throw 'Could not launch $whatsappUrl';
+                    }
+                },
+                child: Container(
+                    padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
+                   // height: Dimensions.PADDING_SIZE_EXTRA_OVER_LARGE,
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.radiusSizeExtraSmall), color: Theme.of(context).secondaryHeaderColor),
+                  child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [const Icon(Icons.message), Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall),
+                    child: Text("Via Whatsapp", style: rubikRegular.copyWith(fontSize: Dimensions.fontSizeLarge)),
                   )],)),
               ),
             ),
