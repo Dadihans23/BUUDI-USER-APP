@@ -22,6 +22,8 @@ class CustomCountryCodeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> westAfricanCodes = ["CI", "ML", "SN", "BF", "BJ", "TG"];
+
     return CountryCodePicker(
       dialogBackgroundColor: Theme.of(context).canvasColor,
       padding: EdgeInsets.zero,
@@ -34,6 +36,7 @@ class CustomCountryCodeWidget extends StatelessWidget {
       showOnlyCountryWhenClosed: false,
       alignLeft: false,
       showFlag: false,
+      countryFilter: westAfricanCodes,
     );
   }
 

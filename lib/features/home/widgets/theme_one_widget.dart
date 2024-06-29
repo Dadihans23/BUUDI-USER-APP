@@ -109,7 +109,7 @@ class ThemeOneWidget extends StatelessWidget {
                               SizedBox(height:34, child: Image.asset(Images.walletLogo)),
                               const SizedBox(height: Dimensions.paddingSizeExtraSmall,),
                               Text(
-                                'ajouter', style: rubikRegular.copyWith(
+                                'Ajouter', style: rubikRegular.copyWith(
                                 fontSize: Dimensions.fontSizeDefault,
                                 color: Theme.of(context).textTheme.bodyLarge!.color,
                               ),)

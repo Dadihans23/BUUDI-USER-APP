@@ -127,7 +127,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.orangelogo, percentage: 0.03),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.orangelogo, percentage: 0.03 , indicatif: 225,),
                   ),
                 );
               },
@@ -142,7 +142,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.wavelogo, percentage: 0.02),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.wavelogo, percentage: 0.02 ,indicatif: 225),
                   ),
                 );
               },
@@ -157,7 +157,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.mtnlogo, percentage: 0.015),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.mtnlogo, percentage: 0.015 ,indicatif: 225),
                   ),
                 );
               },
@@ -172,7 +172,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025 ,indicatif: 225),
                   ),
                 );
               },
@@ -229,7 +229,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.orangelogo, percentage: 0.03),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.orangelogo, percentage: 0.03 ,indicatif: 221),
                   ),
                 );
               },
@@ -244,7 +244,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.freemoney, percentage: 0.02),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.freemoney, percentage: 0.02,indicatif: 221),
                   ),
                 );
               },
@@ -259,7 +259,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.emoney, percentage: 0.015),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.emoney, percentage: 0.015,indicatif: 221),
                   ),
                 );
               },
@@ -274,7 +274,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.wizall, percentage: 0.025),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.wizall, percentage: 0.025,indicatif: 221),
                   ),
                 );
               },
@@ -331,7 +331,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.orangelogo, percentage: 0.03),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.orangelogo, percentage: 0.03 ,indicatif: 226),
                   ),
                 );
               },
@@ -347,7 +347,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025,indicatif: 226),
                   ),
                 );
               },
@@ -404,7 +404,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025,indicatif: 229),
                   ),
                 );
               },
@@ -420,7 +420,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.mtnlogo, percentage: 0.02),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.mtnlogo, percentage: 0.02,indicatif: 229),
                   ),
                 );
               },
@@ -476,7 +476,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025,indicatif: 228),
                   ),
                 );
               },
@@ -492,7 +492,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.tmoney, percentage: 0.02),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.tmoney, percentage: 0.02 ,indicatif: 228),
                   ),
                 );
               },
@@ -547,7 +547,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.moovlogo, percentage: 0.025 ,indicatif: 223),
                   ),
                 );
               },
@@ -563,7 +563,7 @@ Container(
                 Navigator.push(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.orangelogo, percentage: 0.025),
+                    pageBuilder: (context, animation, secondaryAnimation) => retraitInter(imagePath: Images.orangelogo, percentage: 0.025 ,indicatif: 223),
                   ),
                 );
               },

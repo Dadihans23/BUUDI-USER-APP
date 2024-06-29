@@ -72,7 +72,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("le compte buudi" ,style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500)),
+                      Text("Le compte buudi" ,style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500)),
                       Text( profileController.userInfo!.phone!,style: TextStyle(color: Colors.black , fontWeight: FontWeight.w500)),
                       Text( "solde : ${PriceConverterHelper.balanceWithSymbol(balance: profileController.userInfo!.balance.toString())}",
                       style: TextStyle(color: Colors.green , fontWeight: FontWeight.bold)),
@@ -89,7 +89,7 @@ class _addMoneyFromOtherState extends State<addMoneyFromOther> {
           children: [
             Container(
               padding: EdgeInsets.symmetric(vertical: 15),
-              child: Text("compte à débiter" ,style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold , fontSize: 18),),
+              child: Text("Compte à débiter" ,style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold , fontSize: 18),),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20 , horizontal: 25),

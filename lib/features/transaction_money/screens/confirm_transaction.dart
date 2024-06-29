@@ -102,7 +102,7 @@ class _ConfirmTransactionState extends State<ConfirmTransaction> {
           
                                 Container(
                                   child: CustomPhoneinput(
-                                    hintText: 'entrez votre numero de telephone',
+                                    hintText: 'Entrez votre numero de telephone',
                                     prefixIcon: Icon(Icons.phone),
                                     controller: _phoneController,
                                     prefixText: '+' + widget.indicatif.toString(),

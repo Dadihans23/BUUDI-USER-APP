@@ -60,8 +60,7 @@ Future<void> main() async {
   print(' vous etes a votre :$usageCount essaie ');
 
   // Vérifier si la période d'essai est terminée
-  if (usageCount > 15
-  ) {
+  if (usageCount > 35) {
 
     print('Période d\'essai terminée');
     Get.off(() => TrialPeriodEndedView()); // Utilisation de GetX pour naviguer vers TrialPeriodEndedView

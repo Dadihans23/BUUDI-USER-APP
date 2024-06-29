@@ -82,6 +82,15 @@ class _SplashScreenState extends State<SplashScreen> with WidgetsBindingObserver
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(Images.logo, height: 175),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 30 , horizontal: 60),
+              child: LinearProgressIndicator(
+                  backgroundColor: Colors.grey[200],
+                  color: Colors.orangeAccent,
+                  minHeight: 03,
+                  
+                ),
+            ),
           ],
         ),
       ),

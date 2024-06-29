@@ -66,8 +66,8 @@ class TransactionHistoryWidget extends StatelessWidget {
                     children: [
                       Text(
                        transactions!.transactionType!.tr == 'Argent reçu' 
-                          ? 'vous avez reçu' 
-                          : 'vous avez envoyé',
+                          ? 'Vous avez reçu' 
+                          : 'Vous avez envoyé',
                         style: rubikMedium.copyWith(fontSize: Dimensions.fontSizeDefault),
                       ),
                       const SizedBox(height: Dimensions.paddingSizeSuperExtraSmall),

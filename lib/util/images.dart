@@ -4,7 +4,7 @@ class Images {
   static const String english = 'assets/image/english.png';
 
   //
-  static const String logo = 'assets/image/logobuudi.jpeg';
+  static const String logo = 'assets/image/logobuudineat.png';
   static const String avatar = 'assets/image/avatar.jpg';
 
   static const String onboardImage2 = 'assets/image/slide2.png';
